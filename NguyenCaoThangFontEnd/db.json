@@ -1,0 +1,69 @@
+{
+	"products": [
+	  {
+		"id": 1,
+		"name": "Bàn phím cơ không dây AULA F75 Pro xanh dương",
+		"description": "Bàn phím cơ không dây với thiết kế gọn nhẹ, hỗ trợ kết nối Bluetooth và USB.",
+		"price": 1299000,
+		"category": "keyboard",
+		"image": "anh1.webp"
+	  },
+	  {
+		"id": 2,
+		"name": "Bàn phím cơ không dây Aula AU75 đen",
+		"description": "Bàn phím cơ không dây Aula AU75 màu đen với đèn LED RGB sống động.",
+		"price": 1399000,
+		"category": "keyboard",
+		"image": "anh2.webp"
+	  },
+	  {
+		"id": 3,
+		"name": "Chuột không dây Logitech MX Master 2S",
+		"description": "Chuột không dây với công nghệ Darkfield cho độ chính xác cao.",
+		"price": 1390000,
+		"category": "mouse",
+		"image": "anh3.webp"
+	  },
+	  {
+		"id": 4,
+		"name": "Chuột không dây Logitech MX Anywhere 2S",
+		"description": "Chuột nhỏ gọn, dễ dàng mang theo và sử dụng trên mọi bề mặt.",
+		"price": 1290000,
+		"category": "mouse",
+		"image": "anh4.webp"
+	  },
+	  {
+		"id": 5,
+		"name": "Tai nghe chụp tai có dây Gaming Havit H2040D",
+		"description": "Tai nghe gaming với âm thanh sống động, hỗ trợ kết nối jack 3.5mm.",
+		"price": 320000,
+		"category": "headset",
+		"image": "anh5.webp"
+	  },
+	  {
+		"id": 6,
+		"name": "Tai nghe chụp tai Gaming Sony Inzone H3",
+		"description": "Tai nghe gaming chuyên nghiệp với âm thanh vòm chất lượng cao.",
+		"price": 1090000,
+		"category": "headset",
+		"image": "anh6.webp"
+	  },
+	  {
+		"id": 7,
+		"name": "Màn hình ASUS VY279HGR 120HZ 27 inch",
+		"description": "Màn hình gaming 27 inch, tần số quét 120Hz, độ phân giải Full HD.",
+		"price": 2990000,
+		"category": "monitor",
+		"image": "anh8.webp"
+	  },
+	  {
+		"id": 8,
+		"name": "Màn hình Gaming VX2479A-PRO 240Hz 24 inch",
+		"description": "Màn hình gaming chuyên nghiệp, tần số quét lên đến 240Hz.",
+		"price": 3890000,
+		"category": "monitor",
+		"image": "anh7.webp"
+	  }
+	],
+  "cart": []
+}

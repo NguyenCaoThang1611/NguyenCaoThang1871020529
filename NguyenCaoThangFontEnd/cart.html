@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="cart.js"></script>
+</head>
+<body>
+
+    <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+
+    <div class="container mt-5">
+        <h2 class="text-center">🛒 Giỏ hàng của bạn</h2>
+        <table class="table table-bordered" id="cart-table">
+            <thead>
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sản phẩm sẽ được thêm bằng JavaScript -->
+            </tbody>
+        </table>
+        <div class="text-center">
+            <button id="checkout" class="btn btn-success">🛍 Mua hàng</button>
+        </div>
+    </div>
+    
+
+    <script>
+        $(document).ready(function () {
+            function loadCart() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let cartHTML = '';
+                let totalPrice = 0;
+
+                cart.forEach((item, index) => {
+                    let itemTotal = item.price * item.quantity;
+                    totalPrice += itemTotal;
+                    cartHTML += `
+                        <tr>
+                            <td><img src="${item.image}" width="50"></td>
+                            <td>${item.name}</td>
+                            <td>${item.price.toLocaleString()} VND</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary decrease-qty" data-index="${index}">-</button>
+                                ${item.quantity}
+                                <button class="btn btn-sm btn-primary increase-qty" data-index="${index}">+</button>
+                            </td>
+                            <td>${itemTotal.toLocaleString()} VND</td>
+                            <td><button class="btn btn-sm btn-danger remove-item" data-index="${index}">Xóa</button></td>
+                        </tr>
+                    `;
+                });
+
+                $('#cart-items').html(cartHTML);
+                $('#total-price').text(totalPrice.toLocaleString());
+            }
+
+            loadCart();
+
+            $(document).on('click', '.increase-qty', function () {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let index = $(this).data('index');
+                cart[index].quantity += 1;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+            });
+
+            $(document).on('click', '.decrease-qty', function () {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let index = $(this).data('index');
+                if (cart[index].quantity > 1) {
+                    cart[index].quantity -= 1;
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+            });
+
+            $(document).on('click', '.remove-item', function () {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                let index = $(this).data('index');
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCart();
+            });
+
+            $('#clear-cart').click(function () {
+                localStorage.removeItem('cart');
+                loadCart();
+            });
+        });
+
+
+        $(document).ready(function () {
+    function loadCart() {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let cartHTML = '';
+        let totalPrice = 0;
+
+        cart.forEach((item, index) => {
+            let itemTotal = item.price * item.quantity;
+            totalPrice += itemTotal;
+            cartHTML += `
+                <tr>
+                    <td><img src="${item.image}" width="50"></td>
+                    <td>${item.name}</td>
+                    <td>${item.price.toLocaleString()} VND</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary decrease-qty" data-index="${index}">-</button>
+                        ${item.quantity}
+                        <button class="btn btn-sm btn-primary increase-qty" data-index="${index}">+</button>
+                    </td>
+                    <td>${itemTotal.toLocaleString()} VND</td>
+                    <td><button class="btn btn-sm btn-danger remove-item" data-index="${index}">Xóa</button></td>
+                </tr>
+            `;
+        });
+
+        $('#cart-items').html(cartHTML);
+        $('#total-price').text(totalPrice.toLocaleString());
+    }
+
+    loadCart(); // Hiển thị giỏ hàng khi tải trang
+
+    $(document).on('click', '.increase-qty', function () {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let index = $(this).data('index');
+        cart[index].quantity += 1;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        loadCart();
+    });
+
+    $(document).on('click', '.decrease-qty', function () {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let index = $(this).data('index');
+        if (cart[index].quantity > 1) {
+            cart[index].quantity -= 1;
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        loadCart();
+    });
+
+    $(document).on('click', '.remove-item', function () {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let index = $(this).data('index');
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        loadCart();
+    });
+
+    $('#clear-cart').click(function () {
+        localStorage.removeItem('cart');
+        loadCart();
+    });
+});
+
+
+
+    </script>
+</body>
+</html>
